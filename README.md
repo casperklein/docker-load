@@ -19,7 +19,7 @@ Generate CPU load
 
 ## Run
 
-   docker run --rm -it -e TZ="Europe/Berlin" -e THREADS=4 -e TIME=60 -e SLEEP=30 casperklein/load
+    docker run --rm -it -e TZ="Europe/Berlin" -e THREADS=4 -e TIME=60 -e SLEEP=30 casperklein/load
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-blue.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-blue.svg
