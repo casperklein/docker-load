@@ -12,7 +12,7 @@ SHELL	["/bin/bash", "-o", "pipefail", "-c"]
 # Add backports
 
 # Install packages
-RUN	echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/apt/sources.list
+RUN	echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/apt/sources.list \
 &&	apt-get update \
 &&	apt-get -y upgrade \
 &&	apt-get -y --no-install-recommends install $PACKAGES
