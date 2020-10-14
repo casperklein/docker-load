@@ -16,7 +16,10 @@ RUN	echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/apt/so
 &&	apt-get -y --no-install-recommends install $PACKAGES \
 &&	rm -rf /var/lib/apt/lists/*
 
+# Copy root filesystem
+COPY	rootfs /
+
 FROM    scratch
 COPY    --from=build / /
 
-CMD	["/bin/bash", "-c", "while :; do date; sysbench cpu --cpu-max-prime=9999 --threads=4 --time=60 run; sleep 30; done"]
+CMD	["/run.sh"]
