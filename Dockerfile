@@ -1,7 +1,7 @@
 FROM	debian:10-slim as build
 
 ENV	USER="casperklein"
-ENV	NAME="docker-load"
+ENV	NAME="load"
 ENV	VERSION="0.1"
 
 ENV	PACKAGES="sysbench"
