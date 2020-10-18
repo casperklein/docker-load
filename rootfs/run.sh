@@ -18,7 +18,7 @@ echo
 
 while :; do
 	date '+%F %T'
-	sysbench cpu --cpu-max-prime=9999 --threads="$THREADS" --time="$TIME" run
+	stress --cpu "$THREADS" --timeout "$TIME"
 	echo "Now sleeping for $SLEEP seconds.."
 	echo
 	sleep ${SLEEP}

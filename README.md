@@ -6,7 +6,7 @@
 ![Supports armv7 architecture][armv7-shield]
 ![Docker image size][image-size-shield]
 
-Generate CPU load with sysbench
+Generate CPU load with [stress](https://packages.debian.org/buster/stress)
 
 ## Parameters
 
