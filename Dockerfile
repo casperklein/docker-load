@@ -1,14 +1,11 @@
 FROM	debian:10-slim as build
 
-ENV	USER="casperklein"
-ENV	NAME="load"
-ENV	VERSION="0.2"
-
 ENV	PACKAGES="stress"
 
 SHELL	["/bin/bash", "-o", "pipefail", "-c"]
 
 # Add backports and install sysbench
+ENV	DEBIAN_FRONTEND=noninteractive
 RUN	apt-get update \
 &&	apt-get -y upgrade \
 &&	apt-get -y --no-install-recommends install $PACKAGES \
@@ -17,7 +14,9 @@ RUN	apt-get update \
 # Copy root filesystem
 COPY	rootfs /
 
+# Build final image
 FROM    scratch
-COPY    --from=build / /
 
 CMD	["/run.sh"]
+
+COPY    --from=build / /
