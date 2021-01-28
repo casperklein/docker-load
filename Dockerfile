@@ -15,8 +15,8 @@ RUN	apt-get update \
 COPY	rootfs /
 
 # Build final image
-FROM    scratch
+FROM	scratch
 
 CMD	["/run.sh"]
 
-COPY    --from=build / /
+COPY	--from=build / /

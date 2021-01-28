@@ -21,7 +21,7 @@ while :; do
 	stress --cpu "$THREADS" --timeout "$TIME"
 	echo "Now sleeping for $SLEEP seconds.."
 	echo
-	sleep ${SLEEP}
+	sleep "$SLEEP"
 	printf '%.0s-' $(seq 1 $COLUMNS)
 	echo
 	echo
