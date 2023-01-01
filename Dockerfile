@@ -1,11 +1,11 @@
 FROM	debian:11-slim as build
 
-ENV	PACKAGES="stress"
+ARG	PACKAGES="stress"
 
 SHELL	["/bin/bash", "-o", "pipefail", "-c"]
 
 # Add backports and install sysbench
-ENV	DEBIAN_FRONTEND=noninteractive
+ARG	DEBIAN_FRONTEND=noninteractive
 RUN	apt-get update \
 &&	apt-get -y upgrade \
 &&	apt-get -y --no-install-recommends install $PACKAGES \
@@ -17,8 +17,12 @@ COPY	rootfs /
 # Build final image
 FROM	scratch
 
-ARG	VERSION
-ENV	Version=$VERSION
+ARG	VERSION="unknown"
+
+LABEL	org.opencontainers.image.description="Generate CPU load with 'stress'"
+LABEL	org.opencontainers.image.source="https://github.com/casperklein/docker-load/"
+LABEL	org.opencontainers.image.title="docker-load"
+LABEL	org.opencontainers.image.version="$VERSION"
 
 CMD	["/run.sh"]
 
